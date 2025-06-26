@@ -1,6 +1,6 @@
 using Sadie.API.Networking;
-using Sadie.Database.Models.Rooms.Chat;
-using Sadie.Networking.Serialization.Attributes;
+using Sadie.Db.Models.Rooms.Chat;
+using Sadie.Shared.Attributes;
 
 namespace Sadie.Networking.Writers.Moderation;
 

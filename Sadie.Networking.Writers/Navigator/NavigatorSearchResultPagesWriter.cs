@@ -1,10 +1,10 @@
 using Sadie.API;
 using Sadie.API.Game.Rooms;
 using Sadie.API.Networking;
-using Sadie.Database.Models.Navigator;
-using Sadie.Database.Models.Rooms;
+using Sadie.Db.Models.Navigator;
+using Sadie.Db.Models.Rooms;
 using Sadie.Enums.Unsorted;
-using Sadie.Networking.Serialization.Attributes;
+using Sadie.Shared.Attributes;
 
 namespace Sadie.Networking.Writers.Navigator;
 

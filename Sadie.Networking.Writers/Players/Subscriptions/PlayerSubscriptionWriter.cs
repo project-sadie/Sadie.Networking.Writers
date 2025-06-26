@@ -1,6 +1,6 @@
 ﻿using Sadie.API.Game.Players.Packets.Writers;
 using Sadie.API.Networking;
-using Sadie.Networking.Serialization.Attributes;
+using Sadie.Shared.Attributes;
 
 namespace Sadie.Networking.Writers.Players.Subscriptions;
 

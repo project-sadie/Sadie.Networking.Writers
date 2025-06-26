@@ -1,5 +1,5 @@
 using Sadie.API.Networking;
-using Sadie.Networking.Serialization.Attributes;
+using Sadie.Shared.Attributes;
 
 namespace Sadie.Networking.Writers.Rooms.FloorPlanEditor;
 

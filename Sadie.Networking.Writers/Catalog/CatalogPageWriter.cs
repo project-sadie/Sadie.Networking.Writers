@@ -1,9 +1,9 @@
 using Sadie.API.Networking;
-using Sadie.Database.Models.Catalog.FrontPage;
-using Sadie.Database.Models.Catalog.Items;
+using Sadie.Db.Models.Catalog.FrontPage;
+using Sadie.Db.Models.Catalog.Items;
 using Sadie.Enums.Game.Furniture;
 using Sadie.Enums.Unsorted;
-using Sadie.Networking.Serialization.Attributes;
+using Sadie.Shared.Attributes;
 using Sadie.Shared.Helpers;
 
 namespace Sadie.Networking.Writers.Catalog;

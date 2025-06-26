@@ -1,7 +1,7 @@
 using Sadie.API;
 using Sadie.API.Networking;
-using Sadie.Networking.Serialization.Attributes;
 using Sadie.Networking.Writers.Rooms.Polls.Dtos;
+using Sadie.Shared.Attributes;
 
 namespace Sadie.Networking.Writers.Rooms.Polls;
 

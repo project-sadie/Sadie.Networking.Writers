@@ -1,8 +1,8 @@
 using Sadie.API;
 using Sadie.API.Networking;
-using Sadie.Database.Models.Players.Furniture;
+using Sadie.Db.Models.Players.Furniture;
 using Sadie.Enums.Game.Furniture;
-using Sadie.Networking.Serialization.Attributes;
+using Sadie.Shared.Attributes;
 using Sadie.Shared.Helpers;
 
 namespace Sadie.Networking.Writers.Players.Inventory;

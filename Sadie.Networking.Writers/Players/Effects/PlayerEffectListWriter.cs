@@ -1,6 +1,6 @@
 ﻿using Sadie.API.Game.Players.Effects;
 using Sadie.API.Networking;
-using Sadie.Networking.Serialization.Attributes;
+using Sadie.Shared.Attributes;
 
 namespace Sadie.Networking.Writers.Players.Effects;
 

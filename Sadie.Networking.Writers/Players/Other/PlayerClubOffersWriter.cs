@@ -1,7 +1,7 @@
 ﻿using Sadie.API;
 using Sadie.API.Networking;
-using Sadie.Database.Models.Catalog;
-using Sadie.Networking.Serialization.Attributes;
+using Sadie.Db.Models.Catalog;
+using Sadie.Shared.Attributes;
 
 namespace Sadie.Networking.Writers.Players.Other;
 

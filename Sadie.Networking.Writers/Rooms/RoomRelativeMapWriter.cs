@@ -1,7 +1,7 @@
 ﻿using Sadie.API;
 using Sadie.API.Game.Rooms.Mapping;
 using Sadie.API.Networking;
-using Sadie.Networking.Serialization.Attributes;
+using Sadie.Shared.Attributes;
 
 namespace Sadie.Networking.Writers.Rooms;
 

@@ -1,6 +1,6 @@
 using Sadie.API.Networking;
-using Sadie.Database.Models.Players;
-using Sadie.Networking.Serialization.Attributes;
+using Sadie.Db.Models.Players;
+using Sadie.Shared.Attributes;
 
 namespace Sadie.Networking.Writers.Players.Navigator;
 

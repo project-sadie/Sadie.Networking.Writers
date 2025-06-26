@@ -1,6 +1,6 @@
 using Sadie.API.Networking;
-using Sadie.Database.Models.Players.Furniture;
-using Sadie.Networking.Serialization.Attributes;
+using Sadie.Db.Models.Players.Furniture;
+using Sadie.Shared.Attributes;
 
 namespace Sadie.Networking.Writers.Rooms.Furniture;
 

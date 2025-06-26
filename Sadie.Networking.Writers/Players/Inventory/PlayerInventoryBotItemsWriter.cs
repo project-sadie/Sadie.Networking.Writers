@@ -1,8 +1,8 @@
 using Sadie.API;
 using Sadie.API.Networking;
-using Sadie.Database.Models.Players;
+using Sadie.Db.Models.Players;
 using Sadie.Enums.Unsorted;
-using Sadie.Networking.Serialization.Attributes;
+using Sadie.Shared.Attributes;
 
 namespace Sadie.Networking.Writers.Players.Inventory;
 
