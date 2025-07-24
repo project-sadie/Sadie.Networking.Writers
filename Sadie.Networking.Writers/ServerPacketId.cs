@@ -1,6 +1,6 @@
 namespace Sadie.Networking.Writers;
 
-public class ServerPacketId
+public static class ServerPacketId
 {
     public const short SecureLogin = 2491;
     public const short PlayerHomeRoom = 2875;
