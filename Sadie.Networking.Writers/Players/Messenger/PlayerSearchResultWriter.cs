@@ -19,7 +19,7 @@ public class PlayerSearchResultWriter : AbstractPacketWriter
         {
             writer.WriteLong(friend.Id);
             writer.WriteString(friend.Username);
-            writer.WriteString(friend.AvatarData.Motto);
+            writer.WriteString(friend.AvatarData.Motto ?? string.Empty);
             writer.WriteBool(false);
             writer.WriteBool(false);
             writer.WriteString("");
@@ -34,7 +34,7 @@ public class PlayerSearchResultWriter : AbstractPacketWriter
         {
             writer.WriteLong(stranger.Id);
             writer.WriteString(stranger.Username);
-            writer.WriteString(stranger.AvatarData.Motto);
+            writer.WriteString(stranger.AvatarData.Motto ?? string.Empty);
             writer.WriteBool(false);
             writer.WriteBool(false);
             writer.WriteString("");

@@ -15,9 +15,9 @@ public class PlayerDataWriter : AbstractPacketWriter
     {
         writer.WriteLong(Player.Id);
         writer.WriteString(Player.Username);
-        writer.WriteString(Player.AvatarData.FigureCode);
+        writer.WriteString(Player.AvatarData!.FigureCode);
         writer.WriteString(Player.AvatarData.Gender == AvatarGender.Male ? "M" : "F");
-        writer.WriteString(Player.AvatarData.Motto);
+        writer.WriteString(Player.AvatarData.Motto ?? string.Empty);
         writer.WriteString(Player.Username);
         writer.WriteBool(false);
         writer.WriteInteger(Player.Respects.Count);
