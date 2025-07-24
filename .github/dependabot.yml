@@ -6,4 +6,6 @@ updates:
       interval: "daily"
     open-pull-requests-limit: 5
     allow:
-      - dependency-type: "all"
+      - dependency-name: "Sadie.API"
+      - dependency-name: "Sadie.Db"
+      - dependency-name: "Sadie.Networking.Serialization"
