@@ -1,6 +1,7 @@
 using Sadie.API;
 using Sadie.API.Networking;
 using Sadie.Db.Models.Players;
+using Sadie.Enums.Game.Players;
 using Sadie.Enums.Unsorted;
 using Sadie.Shared.Attributes;
 
@@ -20,7 +21,7 @@ public class PlayerInventoryBotItemsWriter : AbstractPacketWriter
             writer.WriteInteger(bot.Id);
             writer.WriteString(bot.Username);
             writer.WriteString(bot.Motto);
-            writer.WriteString(bot.Gender == AvatarGender.Male ? "m" : "f");
+            writer.WriteString(bot.Gender == PlayerAvatarGender.Male ? "m" : "f");
             writer.WriteString(bot.FigureCode);
         }
     }

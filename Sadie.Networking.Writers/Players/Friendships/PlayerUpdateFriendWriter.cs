@@ -1,6 +1,7 @@
 using Sadie.API;
 using Sadie.API.Game.Players.Friendships;
 using Sadie.API.Networking;
+using Sadie.Enums.Game.Players;
 using Sadie.Enums.Unsorted;
 using Sadie.Shared.Attributes;
 
@@ -28,7 +29,7 @@ public class PlayerUpdateFriendWriter : AbstractPacketWriter
             {
                 writer.WriteLong(update.Friend.Id);
                 writer.WriteString(update.Friend.Username);
-                writer.WriteInteger(update.Friend.Gender == AvatarGender.Male ? 0 : 1);
+                writer.WriteInteger(update.Friend.Gender == PlayerAvatarGender.Male ? 0 : 1);
                 writer.WriteBool(update.FriendOnline);
                 writer.WriteBool(update.FriendInRoom);
                 writer.WriteString(update.Friend.FigureCode);

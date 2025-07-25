@@ -1,4 +1,5 @@
 using Sadie.API.Game.Rooms;
+using Sadie.Enums.Game.Rooms;
 using Sadie.Enums.Unsorted;
 using Sadie.Shared.Attributes;
 
