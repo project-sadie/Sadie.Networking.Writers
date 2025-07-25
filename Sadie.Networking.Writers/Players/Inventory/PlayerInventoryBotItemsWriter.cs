@@ -2,7 +2,6 @@ using Sadie.API;
 using Sadie.API.Networking;
 using Sadie.Db.Models.Players;
 using Sadie.Enums.Game.Players;
-using Sadie.Enums.Unsorted;
 using Sadie.Shared.Attributes;
 
 namespace Sadie.Networking.Writers.Players.Inventory;

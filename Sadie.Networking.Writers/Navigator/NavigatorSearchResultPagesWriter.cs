@@ -4,7 +4,6 @@ using Sadie.API.Networking;
 using Sadie.Db.Models.Navigator;
 using Sadie.Db.Models.Rooms;
 using Sadie.Enums.Game.Rooms;
-using Sadie.Enums.Unsorted;
 using Sadie.Shared.Attributes;
 
 namespace Sadie.Networking.Writers.Navigator;

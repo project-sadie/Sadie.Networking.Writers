@@ -1,6 +1,6 @@
 ﻿using Sadie.API.Game.Rooms.Bots;
 using Sadie.API.Networking;
-using Sadie.Enums.Unsorted;
+using Sadie.Enums.Game.Players;
 using Sadie.Shared.Attributes;
 
 namespace Sadie.Networking.Writers.Rooms;
@@ -30,7 +30,7 @@ public class RoomBotDataWriter : AbstractPacketWriter
                 writer.WriteString(bot.PointZ + "");
                 writer.WriteInteger((int) bot.Direction);
                 writer.WriteInteger(3);
-                writer.WriteString(botData.Gender == AvatarGender.Male ? "M" : "F");
+                writer.WriteString(botData.Gender == PlayerAvatarGender.Male ? "M" : "F");
                 writer.WriteLong(bot.Bot.PlayerId);
                 writer.WriteString("");
                 writer.WriteInteger(10);

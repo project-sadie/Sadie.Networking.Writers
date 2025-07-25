@@ -3,7 +3,6 @@ using Sadie.API.Game.Rooms.Furniture;
 using Sadie.API.Networking;
 using Sadie.Db.Models.Players.Furniture;
 using Sadie.Enums.Miscellaneous;
-using Sadie.Enums.Unsorted;
 using Sadie.Shared.Attributes;
 
 namespace Sadie.Networking.Writers.Rooms.Furniture;

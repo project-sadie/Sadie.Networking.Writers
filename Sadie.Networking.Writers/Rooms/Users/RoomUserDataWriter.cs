@@ -1,7 +1,6 @@
 ﻿using Sadie.API.Game.Rooms.Users;
 using Sadie.API.Networking;
 using Sadie.Enums.Game.Players;
-using Sadie.Enums.Unsorted;
 using Sadie.Shared.Attributes;
 
 namespace Sadie.Networking.Writers.Rooms.Users;

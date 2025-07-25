@@ -2,7 +2,6 @@ using Sadie.API;
 using Sadie.API.Game.Players.Friendships;
 using Sadie.API.Networking;
 using Sadie.Enums.Game.Players;
-using Sadie.Enums.Unsorted;
 using Sadie.Shared.Attributes;
 
 namespace Sadie.Networking.Writers.Players.Friendships;
