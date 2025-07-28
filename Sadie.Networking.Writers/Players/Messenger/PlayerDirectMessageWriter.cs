@@ -14,7 +14,7 @@ public class PlayerDirectMessageWriter : AbstractPacketWriter
     public override void OnSerialize(INetworkPacketWriter writer)
     {
         writer.WriteLong(Message.OriginPlayerId);
-        writer.WriteString(Message.Message);
-        writer.WriteLong(DateTime.Now.ToUnix() - Message.CreatedAt.ToUnix());
+        writer.WriteString(Message.Message ?? "");
+        writer.WriteLong(DateTime.Now.ToUnix() - Message.CreatedAt.ToUnixTimeSeconds());
     }
 }
