@@ -1,6 +1,6 @@
 ﻿using Sadie.API.Game.Rooms.Users;
 using Sadie.API.Networking;
-using Sadie.Enums.Unsorted;
+using Sadie.Enums.Game.Players;
 using Sadie.Shared.Attributes;
 
 namespace Sadie.Networking.Writers.Rooms.Users;
@@ -32,7 +32,7 @@ public class RoomUserDataWriter : AbstractPacketWriter
                 writer.WriteString(user.PointZ + "");
                 writer.WriteInteger((int) user.Direction);
                 writer.WriteInteger(1);
-                writer.WriteString(user.Player.AvatarData.Gender == AvatarGender.Male ? "M" : "F");
+                writer.WriteString(user.Player.AvatarData.Gender == PlayerAvatarGender.Male ? "M" : "F");
                 writer.WriteInteger(-1);
                 writer.WriteInteger(-1);
                 writer.WriteString("");
