@@ -1,7 +1,7 @@
 ﻿using Sadie.API;
 using Sadie.API.Game.Players;
 using Sadie.API.Networking;
-using Sadie.Enums.Unsorted;
+using Sadie.Enums.Game.Players;
 using Sadie.Shared.Attributes;
 
 namespace Sadie.Networking.Writers.Players.Other;
@@ -16,7 +16,7 @@ public class PlayerDataWriter : AbstractPacketWriter
         writer.WriteLong(Player.Id);
         writer.WriteString(Player.Username);
         writer.WriteString(Player.AvatarData!.FigureCode);
-        writer.WriteString(Player.AvatarData.Gender == AvatarGender.Male ? "M" : "F");
+        writer.WriteString(Player.AvatarData.Gender == PlayerAvatarGender.Male ? "M" : "F");
         writer.WriteString(Player.AvatarData.Motto ?? string.Empty);
         writer.WriteString(Player.Username);
         writer.WriteBool(false);

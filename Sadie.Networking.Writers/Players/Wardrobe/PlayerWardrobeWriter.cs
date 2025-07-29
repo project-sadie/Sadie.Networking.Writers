@@ -1,6 +1,6 @@
 using Sadie.API.Networking;
 using Sadie.Db.Models.Players;
-using Sadie.Enums.Unsorted;
+using Sadie.Enums.Game.Players;
 using Sadie.Shared.Attributes;
 
 namespace Sadie.Networking.Writers.Players.Wardrobe;
@@ -25,7 +25,7 @@ public class PlayerWardrobeWriter : AbstractPacketWriter
             
                 writer.WriteInteger(i);
                 writer.WriteString(outfit.FigureCode);
-                writer.WriteString(outfit.Gender == AvatarGender.Male ? "M" : "F");
+                writer.WriteString(outfit.Gender == PlayerAvatarGender.Male ? "M" : "F");
             }
         });
     }

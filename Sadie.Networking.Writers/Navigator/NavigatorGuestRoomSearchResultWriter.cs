@@ -1,5 +1,5 @@
 ﻿using Sadie.API.Networking;
-using Sadie.Enums.Unsorted;
+using Sadie.Enums.Game.Rooms;
 using Sadie.Shared.Attributes;
 
 namespace Sadie.Networking.Writers.Navigator;
