@@ -2,7 +2,6 @@ using Sadie.API.Networking;
 using Sadie.Db.Models.Catalog.FrontPage;
 using Sadie.Db.Models.Catalog.Items;
 using Sadie.Enums.Game.Furniture;
-using Sadie.Enums.Unsorted;
 using Sadie.Shared.Attributes;
 using Sadie.Shared.Helpers;
 
