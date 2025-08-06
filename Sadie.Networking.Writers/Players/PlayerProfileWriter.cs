@@ -23,7 +23,7 @@ public class PlayerProfileWriter : AbstractPacketWriter
         writer.WriteLong(Player.Id);
         writer.WriteString(Player.Username);
         writer.WriteString(Player.AvatarData.FigureCode);
-        writer.WriteString(Player.AvatarData.Motto);
+        writer.WriteString(Player.AvatarData.Motto ?? "");
         writer.WriteString(Player.CreatedAt.ToString("dd MMMM yyyy"));
         writer.WriteLong(Player.Data.AchievementScore);
         writer.WriteLong(FriendshipCount);
