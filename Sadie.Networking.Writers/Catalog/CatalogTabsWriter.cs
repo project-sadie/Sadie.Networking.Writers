@@ -34,7 +34,7 @@ public class CatalogTabsWriter : AbstractPacketWriter
     {
         writer.WriteBool(page.Visible);
         writer.WriteInteger(page.IconId);
-        writer.WriteInteger(page.Enabled ? page.Id : -1);
+        writer.WriteInteger(page.Enabled ? page.Id : -page.Id);
         writer.WriteString(page.Name);
         writer.WriteString(page.Caption);
         writer.WriteInteger(0);
