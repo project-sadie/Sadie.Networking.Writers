@@ -28,7 +28,7 @@ public class RoomUserTradeUpdateWriter : AbstractPacketWriter
             foreach (var item in usersOfferedItems)
             {
                 writer.WriteInteger(item.Id);
-                writer.WriteString(EnumHelpers.GetEnumDescription(item.FurnitureItem!.Type)!);
+                writer.WriteString(EnumHelpers.GetEnumDescription(item.FurnitureItem.Type));
                 writer.WriteInteger(item.Id);
                 writer.WriteInteger(item.FurnitureItem.AssetId);
                 writer.WriteInteger(0);
