@@ -1,4 +1,4 @@
-using Sadie.API.Networking;
+using Sadie.API.Interfaces.Networking;
 
 namespace Sadie.Networking.Writers.Rooms.Furniture;
 

@@ -1,10 +1,9 @@
 using Sadie.API;
-using Sadie.API.Game.Rooms;
-using Sadie.API.Networking;
-using Sadie.Db.Models.Navigator;
-using Sadie.Db.Models.Rooms;
-using Sadie.Enums.Game.Rooms;
-using Sadie.Shared.Attributes;
+using Sadie.API.DTOs.Rooms;
+using Sadie.API.Interfaces.Game.Rooms;
+using Sadie.API.Interfaces.Networking;
+using Sadie.Core.Enums.Game.Rooms;
+using Sadie.Core.Shared.Attributes;
 
 namespace Sadie.Networking.Writers.Navigator;
 
@@ -13,7 +12,7 @@ public class NavigatorSearchResultPagesWriter : AbstractPacketWriter
 {
     public required string? TabName { get; init; }
     public required string? SearchQuery { get; init; }
-    public required Dictionary<NavigatorCategory, List<Room>> CategoryRoomMap { get; init; }
+    public required Dictionary<NavigatorCategoryDto, List<RoomDto>> CategoryRoomMap { get; init; }
     public required IRoomRepository RoomRepository { get; init; }
 
     public override void OnSerialize(INetworkPacketWriter writer)

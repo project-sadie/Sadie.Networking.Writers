@@ -1,9 +1,9 @@
 using Sadie.API;
-using Sadie.API.Networking;
-using Sadie.Db.Models.Players.Furniture;
-using Sadie.Enums.Game.Furniture;
-using Sadie.Shared.Attributes;
-using Sadie.Shared.Helpers;
+using Sadie.API.DTOs.Player.Furniture;
+using Sadie.API.Interfaces.Networking;
+using Sadie.Core.Enums.Game.Furniture;
+using Sadie.Core.Shared.Attributes;
+using Sadie.Core.Shared.Helpers;
 
 namespace Sadie.Networking.Writers.Players.Inventory;
 
@@ -12,7 +12,7 @@ public class PlayerInventoryFurnitureItemsWriter : AbstractPacketWriter
 {
     public required int Pages { get; init; }
     public required int CurrentPage { get; init; }
-    public required List<PlayerFurnitureItem> Items { get; init; }
+    public required List<PlayerFurnitureItemDto> Items { get; init; }
 
     public override void OnConfigureRules()
     {
@@ -27,7 +27,7 @@ public class PlayerInventoryFurnitureItemsWriter : AbstractPacketWriter
         });
     }
 
-    private static void WriteItem(PlayerFurnitureItem item, INetworkPacketWriter writer)
+    private static void WriteItem(PlayerFurnitureItemDto item, INetworkPacketWriter writer)
     {
         var furnitureItem = item.FurnitureItem;
         var hasRentPeriodStarted = false;

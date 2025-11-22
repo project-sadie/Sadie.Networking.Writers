@@ -1,15 +1,15 @@
 using Sadie.API;
-using Sadie.API.Networking;
-using Sadie.Db.Models.Players;
-using Sadie.Enums.Game.Players;
-using Sadie.Shared.Attributes;
+using Sadie.API.DTOs.Player;
+using Sadie.API.Interfaces.Networking;
+using Sadie.Core.Enums.Game.Players;
+using Sadie.Core.Shared.Attributes;
 
 namespace Sadie.Networking.Writers.Players.Inventory;
 
 [PacketId(ServerPacketId.PlayerInventoryBotItems)]
 public class PlayerInventoryBotItemsWriter : AbstractPacketWriter
 {
-    public required ICollection<PlayerBot> Bots { get; init; }
+    public required ICollection<PlayerBotDto> Bots { get; init; }
 
     public override void OnSerialize(INetworkPacketWriter writer)
     {

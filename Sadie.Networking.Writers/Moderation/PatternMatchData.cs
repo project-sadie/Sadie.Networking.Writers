@@ -1,4 +1,4 @@
-using Sadie.Shared.Attributes;
+using Sadie.Core.Shared.Attributes;
 
 namespace Sadie.Networking.Writers.Moderation;
 

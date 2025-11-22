@@ -1,6 +1,6 @@
-using Sadie.API.Networking;
-using Sadie.Enums.Game.Rooms.Users.Trading;
-using Sadie.Shared.Attributes;
+using Sadie.API.Interfaces.Networking;
+using Sadie.Core.Enums.Game.Rooms.Users.Trading;
+using Sadie.Core.Shared.Attributes;
 
 namespace Sadie.Networking.Writers.Rooms.Users.Trading;
 
