@@ -1,9 +1,9 @@
 using Sadie.API;
-using Sadie.API.Game.Rooms.Furniture;
-using Sadie.API.Networking;
-using Sadie.Db.Models.Players.Furniture;
-using Sadie.Enums.Miscellaneous;
-using Sadie.Shared.Attributes;
+using Sadie.API.DTOs.Player.Furniture;
+using Sadie.API.Interfaces.Game.Rooms.Furniture;
+using Sadie.API.Interfaces.Networking;
+using Sadie.Core.Enums.Miscellaneous;
+using Sadie.Core.Shared.Attributes;
 
 namespace Sadie.Networking.Writers.Rooms.Furniture;
 
@@ -11,7 +11,7 @@ namespace Sadie.Networking.Writers.Rooms.Furniture;
 public class RoomFloorItemsWriter : AbstractPacketWriter
 {
     public required Dictionary<long, string?> FurnitureOwners { get; init; }
-    public required ICollection<PlayerFurnitureItemPlacementData> FloorItems { get; init; }
+    public required ICollection<PlayerFurnitureItemPlacementDataDto> FloorItems { get; init; }
     public required IRoomFurnitureItemHelperService RoomFurnitureItemHelperService { get; init; }
 
     public override void OnSerialize(INetworkPacketWriter writer)
@@ -21,7 +21,7 @@ public class RoomFloorItemsWriter : AbstractPacketWriter
         foreach (var owner in FurnitureOwners)
         {
            writer.WriteLong(owner.Key);
-           writer.WriteString(owner.Value);
+           writer.WriteString(owner.Value ?? "");
         }
         
         writer.WriteInteger(FloorItems.Count);
@@ -32,13 +32,13 @@ public class RoomFloorItemsWriter : AbstractPacketWriter
         }
     }
 
-    private void WriteItem(PlayerFurnitureItemPlacementData item, INetworkPacketWriter writer)
+    private void WriteItem(PlayerFurnitureItemPlacementDataDto item, INetworkPacketWriter writer)
     {
         var height = -1; // TODO: height
         var extra = 1;
             
         writer.WriteLong(item.PlayerFurnitureItem.Id);
-        writer.WriteInteger(item.FurnitureItem.AssetId);
+        writer.WriteInteger(item.PlayerFurnitureItem.FurnitureItem.AssetId);
         writer.WriteInteger(item.PositionX);
         writer.WriteInteger(item.PositionY);
         writer.WriteInteger((int) item.Direction);
@@ -69,7 +69,7 @@ public class RoomFloorItemsWriter : AbstractPacketWriter
         }
         
         writer.WriteInteger(-1);
-        writer.WriteInteger(item.FurnitureItem.InteractionModes > 1 ? 1 : 0); 
+        writer.WriteInteger(item.PlayerFurnitureItem.FurnitureItem.InteractionModes > 1 ? 1 : 0); 
         writer.WriteLong(item.PlayerFurnitureItem.PlayerId);
     }
 }
