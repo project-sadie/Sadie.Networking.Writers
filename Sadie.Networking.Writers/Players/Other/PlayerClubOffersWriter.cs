@@ -1,4 +1,5 @@
 ﻿using Sadie.API;
+using Sadie.API.DTOs.Catalog;
 using Sadie.API.Interfaces.Networking;
 using Sadie.Core.Shared.Attributes;
 
