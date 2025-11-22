@@ -1,5 +1,5 @@
 using Sadie.API;
-using Sadie.API.Interfaces.Game.Rooms;
+using Sadie.API.DTOs.Rooms;
 using Sadie.API.Interfaces.Networking;
 using Sadie.Core.Shared.Attributes;
 
@@ -8,7 +8,7 @@ namespace Sadie.Networking.Writers.Rooms;
 [PacketId(ServerPacketId.RoomSettings)]
 public class RoomSettingsWriter : AbstractPacketWriter
 {
-    public required IRoomLogic Room { get; init; }
+    public required RoomDto Room { get; init; }
     
     public override void OnSerialize(INetworkPacketWriter writer)
     {
@@ -27,7 +27,7 @@ public class RoomSettingsWriter : AbstractPacketWriter
         }
 
         var settings = Room.Settings;
-        var chatSettings = Room.ChatSettings;
+        var chatSettings = Room.ChatSettings!;
         
         writer.WriteInteger((int) settings.TradeOption);
         writer.WriteInteger(settings.AllowPets ? 1 : 0);
