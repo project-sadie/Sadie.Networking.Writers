@@ -1,10 +1,10 @@
-using Sadie.API.Networking;
-using Sadie.Db.Models.Catalog.FrontPage;
-using Sadie.Db.Models.Catalog.Items;
-using Sadie.Enums.Game.Catalog;
-using Sadie.Enums.Game.Furniture;
-using Sadie.Shared.Attributes;
-using Sadie.Shared.Helpers;
+using Sadie.API.DTOs.Catalog.FrontPage;
+using Sadie.API.DTOs.Catalog.Items;
+using Sadie.API.Interfaces.Networking;
+using Sadie.Core.Enums.Game.Catalog;
+using Sadie.Core.Enums.Game.Furniture;
+using Sadie.Core.Shared.Attributes;
+using Sadie.Core.Shared.Helpers;
 
 namespace Sadie.Networking.Writers.Catalog;
 
@@ -16,10 +16,10 @@ public class CatalogPageWriter : AbstractPacketWriter
     public required string? PageLayout { get; init; }
     public required List<string?> Images { get; init; }
     public required List<string?> Texts { get; init; }
-    public required List<CatalogItem> Items { get; init; }
+    public required List<CatalogItemDto> Items { get; init; }
     public required int Unknown { get; init; }
     public required bool AcceptSeasonCurrencyAsCredits { get; init; }
-    public required IEnumerable<CatalogFrontPageItem> FrontPageItems { get; init; }
+    public required IEnumerable<CatalogFrontPageItemDto> FrontPageItems { get; init; }
 
     public override void OnConfigureRules()
     {

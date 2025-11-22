@@ -1,14 +1,14 @@
 ﻿using Sadie.API;
-using Sadie.API.Networking;
-using Sadie.Db.Models.Catalog;
-using Sadie.Shared.Attributes;
+using Sadie.API.DTOs.Catalog;
+using Sadie.API.Interfaces.Networking;
+using Sadie.Core.Shared.Attributes;
 
 namespace Sadie.Networking.Writers.Players.Other;
 
 [PacketId(ServerPacketId.PlayerClubOffers)]
 public class PlayerClubOffersWriter : AbstractPacketWriter
 {
-    public required IReadOnlyCollection<CatalogClubOffer> Offers { get; init; }
+    public required IReadOnlyCollection<CatalogClubOfferDto> Offers { get; init; }
     public required int WindowId { get; init; }
     public required bool Unused { get; init; }
     public required bool CanGift { get; init; }

@@ -1,6 +1,6 @@
-using Sadie.API.Networking;
-using Sadie.Db.Models.Players;
-using Sadie.Shared.Attributes;
+using Sadie.API.DTOs.Player;
+using Sadie.API.Interfaces.Networking;
+using Sadie.Core.Shared.Attributes;
 
 namespace Sadie.Networking.Writers.Players;
 
@@ -8,7 +8,7 @@ namespace Sadie.Networking.Writers.Players;
 public class PlayerWearingBadgesWriter : AbstractPacketWriter
 {
     public required int PlayerId { get; init; }
-    public required ICollection<PlayerBadge> Badges { get; init; }
+    public required ICollection<PlayerBadgeDto> Badges { get; init; }
 
     public override void OnConfigureRules()
     {

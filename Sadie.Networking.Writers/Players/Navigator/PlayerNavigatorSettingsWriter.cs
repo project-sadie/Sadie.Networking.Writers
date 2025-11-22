@@ -1,11 +1,11 @@
-using Sadie.API.Networking;
-using Sadie.Db.Models.Players;
-using Sadie.Shared.Attributes;
+using Sadie.API.DTOs.Player;
+using Sadie.API.Interfaces.Networking;
+using Sadie.Core.Shared.Attributes;
 
 namespace Sadie.Networking.Writers.Players.Navigator;
 
 [PacketId(ServerPacketId.NavigatorSettings)]
 public class PlayerNavigatorSettingsWriter : AbstractPacketWriter
 {
-    public required PlayerNavigatorSettings NavigatorSettings { get; init; }
+    public required PlayerNavigatorSettingsDto NavigatorSettings { get; init; }
 }

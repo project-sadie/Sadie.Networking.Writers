@@ -1,7 +1,7 @@
 using Sadie.API;
-using Sadie.API.Networking;
-using Sadie.Db.Models.Players.Furniture;
-using Sadie.Shared.Attributes;
+using Sadie.API.DTOs.Player.Furniture;
+using Sadie.API.Interfaces.Networking;
+using Sadie.Core.Shared.Attributes;
 
 namespace Sadie.Networking.Writers.Players;
 
@@ -10,7 +10,7 @@ public class PlayerInventoryUnseenItemsWriter : AbstractPacketWriter
 {
     public required int Count { get; init; }
     public required int Category { get; init; }
-    public required List<PlayerFurnitureItem> FurnitureItems { get; init; }
+    public required List<PlayerFurnitureItemDto> FurnitureItems { get; init; }
 
     public override void OnSerialize(INetworkPacketWriter writer)
     {

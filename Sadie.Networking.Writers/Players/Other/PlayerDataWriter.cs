@@ -1,8 +1,8 @@
 ﻿using Sadie.API;
-using Sadie.API.Game.Players;
-using Sadie.API.Networking;
-using Sadie.Enums.Game.Players;
-using Sadie.Shared.Attributes;
+using Sadie.API.Interfaces.Game.Players;
+using Sadie.API.Interfaces.Networking;
+using Sadie.Core.Enums.Game.Players;
+using Sadie.Core.Shared.Attributes;
 
 namespace Sadie.Networking.Writers.Players.Other;
 

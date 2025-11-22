@@ -1,5 +1,5 @@
-using Sadie.API.Networking;
-using Sadie.Shared.Attributes;
+using Sadie.API.Interfaces.Networking;
+using Sadie.Core.Shared.Attributes;
 
 namespace Sadie.Networking.Writers.Rooms.Furniture;
 
@@ -29,7 +29,7 @@ public class RoomFloorItemPlacedWriter : AbstractPacketWriter
         
         Override(GetType().GetProperty(nameof(ObjectData))!, writer =>
         {
-            if (ObjectDataKey == (int)Enums.Miscellaneous.ObjectDataKey.LegacyKey)
+            if (ObjectDataKey == (int)Core.Enums.Miscellaneous.ObjectDataKey.LegacyKey)
             {
                 writer.WriteString(MetaData);
                 return;

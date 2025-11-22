@@ -1,6 +1,6 @@
-using Sadie.API.Networking;
-using Sadie.Db.Models.Rooms.Chat;
-using Sadie.Shared.Attributes;
+using Sadie.API.DTOs.Rooms.Chat;
+using Sadie.API.Interfaces.Networking;
+using Sadie.Core.Shared.Attributes;
 
 namespace Sadie.Networking.Writers.Moderation;
 
@@ -15,7 +15,7 @@ public class ModToolRoomChatLogWriter : AbstractPacketWriter
     public required string Unknown6 { get; set; }
     public required byte Unknown7 { get; init; }
     public required int Unknown8 { get; set; }
-    public required List<RoomChatMessage> Messages { get; init; }
+    public required List<RoomChatMessageDto> Messages { get; init; }
 
     public override void OnConfigureRules()
     {

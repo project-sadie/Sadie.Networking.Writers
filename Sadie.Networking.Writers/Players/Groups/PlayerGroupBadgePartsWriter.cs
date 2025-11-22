@@ -1,5 +1,5 @@
-using Sadie.API.Networking;
-using Sadie.Shared.Attributes;
+using Sadie.API.Interfaces.Networking;
+using Sadie.Core.Shared.Attributes;
 
 namespace Sadie.Networking.Writers.Players.Groups;
 

@@ -1,18 +1,19 @@
 using Sadie.API;
-using Sadie.API.Game.Rooms;
-using Sadie.API.Networking;
-using Sadie.Enums.Game.Rooms;
-using Sadie.Shared.Attributes;
+using Sadie.API.DTOs.Rooms;
+using Sadie.API.Interfaces.Networking;
+using Sadie.Core.Enums.Game.Rooms;
+using Sadie.Core.Shared.Attributes;
 
 namespace Sadie.Networking.Writers.Rooms.Users;
 
 [PacketId(ServerPacketId.RoomForwardData)]
 public class RoomForwardDataWriter : AbstractPacketWriter
 {
-    public required IRoomLogic Room { get; init; }
+    public required RoomDto Room { get; init; }
     public required bool RoomForward { get; init; }
     public required bool EnterRoom { get; init; }
     public required bool IsOwner { get; init; }
+    public required int UsersNow { get; init; }
 
     public override void OnSerialize(INetworkPacketWriter writer)
     {
@@ -25,7 +26,7 @@ public class RoomForwardDataWriter : AbstractPacketWriter
         writer.WriteLong(Room.OwnerId);
         writer.WriteString(Room.Owner.Username);
         writer.WriteInteger((int) Room.Settings.AccessType);
-        writer.WriteInteger(Room.UserRepository.Count);
+        writer.WriteInteger(UsersNow);
         writer.WriteInteger(Room.MaxUsersAllowed);
         writer.WriteString(Room.Description);
         writer.WriteInteger((int) settings.TradeOption);

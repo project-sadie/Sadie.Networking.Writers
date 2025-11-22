@@ -1,9 +1,9 @@
 ﻿using Sadie.API;
-using Sadie.API.Networking;
-using Sadie.Db.Models.Catalog.Pages;
-using Sadie.Enums.Game.Furniture;
-using Sadie.Shared.Attributes;
-using Sadie.Shared.Helpers;
+using Sadie.API.DTOs.Catalog.Pages;
+using Sadie.API.Interfaces.Networking;
+using Sadie.Core.Enums.Game.Furniture;
+using Sadie.Core.Shared.Attributes;
+using Sadie.Core.Shared.Helpers;
 
 namespace Sadie.Networking.Writers.Players.Other;
 
@@ -13,7 +13,7 @@ public class HabboClubGiftsWriter : AbstractPacketWriter
     public required int DaysTillNext { get; init; }
     public required int UnclaimedGifts { get; init; }
     public required int DaysAsClub { get; init; }
-    public required CatalogPage? ClubGiftPage { get; init; }
+    public required CatalogPageDto? ClubGiftPage { get; init; }
 
     public override void OnSerialize(INetworkPacketWriter writer)
     {

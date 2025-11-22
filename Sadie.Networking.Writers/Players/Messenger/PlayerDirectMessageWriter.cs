@@ -1,15 +1,15 @@
 using Sadie.API;
-using Sadie.API.Networking;
-using Sadie.Db.Models.Players;
-using Sadie.Shared.Attributes;
-using Sadie.Shared.Extensions;
+using Sadie.API.DTOs.Player;
+using Sadie.API.Interfaces.Networking;
+using Sadie.Core.Shared.Attributes;
+using Sadie.Core.Shared.Extensions;
 
 namespace Sadie.Networking.Writers.Players.Messenger;
 
 [PacketId(ServerPacketId.PlayerMessage)]
 public class PlayerDirectMessageWriter : AbstractPacketWriter
 {
-    public required PlayerMessage Message { get; init; }
+    public required PlayerMessageDto Message { get; init; }
 
     public override void OnSerialize(INetworkPacketWriter writer)
     {

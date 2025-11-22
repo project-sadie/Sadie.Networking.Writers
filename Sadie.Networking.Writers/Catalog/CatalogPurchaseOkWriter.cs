@@ -1,9 +1,9 @@
 using Sadie.API;
-using Sadie.API.Networking;
-using Sadie.Db.Models.Furniture;
-using Sadie.Enums.Game.Furniture;
-using Sadie.Shared.Attributes;
-using Sadie.Shared.Helpers;
+using Sadie.API.DTOs.Furniture;
+using Sadie.API.Interfaces.Networking;
+using Sadie.Core.Enums.Game.Furniture;
+using Sadie.Core.Shared.Attributes;
+using Sadie.Core.Shared.Helpers;
 
 namespace Sadie.Networking.Writers.Catalog;
 
@@ -17,7 +17,7 @@ public class CatalogPurchaseOkWriter : AbstractPacketWriter
     public required int CostPoints { get; init; }
     public required int CostPointsType { get; init; }
     public required bool CanGift { get; init; }
-    public required ICollection<FurnitureItem> FurnitureItems { get; init; }
+    public required ICollection<FurnitureItemDto> FurnitureItems { get; init; }
     public required int Amount { get; init; }
     public required int ClubLevel { get; init; }
     public required bool CanPurchaseBundles { get; init; }
