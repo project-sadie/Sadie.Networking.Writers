@@ -1,6 +1,6 @@
-﻿using Sadie.API.Networking;
-using Sadie.Enums.Game.Rooms;
-using Sadie.Shared.Attributes;
+﻿using Sadie.API.Interfaces.Networking;
+using Sadie.Core.Enums.Game.Rooms;
+using Sadie.Core.Shared.Attributes;
 
 namespace Sadie.Networking.Writers.Navigator;
 
@@ -47,7 +47,7 @@ public class NavigatorGuestRoomSearchResultWriter : AbstractPacketWriter
                     writer.WriteLong(guestRoom.OwnerId);
                     writer.WriteString(guestRoom.Owner!.Username);
                     writer.WriteInteger((int) guestRoom.Settings.AccessType);
-                    writer.WriteInteger(guestRoom.UserRepository.Count);
+                    writer.WriteInteger(OfficialRoomEntryData.UserCount);
                     writer.WriteInteger(guestRoom.MaxUsersAllowed);
                     writer.WriteString(guestRoom.Description);
                     writer.WriteInteger((int) guestRoom.Settings.TradeOption);

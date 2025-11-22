@@ -1,15 +1,15 @@
 using Sadie.API;
-using Sadie.API.Networking;
-using Sadie.Db.Models.Players;
-using Sadie.Shared.Attributes;
+using Sadie.API.DTOs.Player;
+using Sadie.API.Interfaces.Networking;
+using Sadie.Core.Shared.Attributes;
 
 namespace Sadie.Networking.Writers.Players.Messenger;
 
 [PacketId(ServerPacketId.PlayerSearchResult)]
 public class PlayerSearchResultWriter : AbstractPacketWriter
 {
-    public required ICollection<Player> Friends { get; init; }
-    public required ICollection<Player> Strangers { get; init; }
+    public required ICollection<PlayerDto> Friends { get; init; }
+    public required ICollection<PlayerDto> Strangers { get; init; }
 
     public override void OnSerialize(INetworkPacketWriter writer)
     {

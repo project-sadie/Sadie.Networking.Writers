@@ -1,6 +1,6 @@
-using Sadie.API.Networking;
-using Sadie.Db.Models.Players;
-using Sadie.Shared.Attributes;
+using Sadie.API.DTOs.Player;
+using Sadie.API.Interfaces.Networking;
+using Sadie.Core.Shared.Attributes;
 
 namespace Sadie.Networking.Writers.Generic;
 
@@ -8,7 +8,7 @@ namespace Sadie.Networking.Writers.Generic;
 public class PlayerRelationshipsWriter : AbstractPacketWriter
 {
     public required long PlayerId { get; init; }
-    public required ICollection<PlayerRelationship> Relationships { get; init; }
+    public required ICollection<PlayerRelationshipDto> Relationships { get; init; }
 
     public override void OnConfigureRules()
     {

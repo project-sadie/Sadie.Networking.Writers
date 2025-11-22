@@ -10,9 +10,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="Sadie.API" Version="1.5.3" />
-      <PackageReference Include="Sadie.Db" Version="1.9.2" />
-      <PackageReference Include="Sadie.Networking.Serialization" Version="1.0.1" />
+      <PackageReference Include="Sadie.API" Version="2.2.2" />
+      <PackageReference Include="Sadie.Networking.Serialization" Version="1.1.0" />
     </ItemGroup>
 
 </Project>

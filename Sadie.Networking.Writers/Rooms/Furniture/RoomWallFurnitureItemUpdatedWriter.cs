@@ -1,23 +1,25 @@
 using Sadie.API;
-using Sadie.API.Networking;
-using Sadie.Db.Models.Players.Furniture;
-using Sadie.Shared.Attributes;
+using Sadie.API.DTOs.Player.Furniture;
+using Sadie.API.Interfaces.Networking;
+using Sadie.Core.Shared.Attributes;
 
 namespace Sadie.Networking.Writers.Rooms.Furniture;
 
 [PacketId(ServerPacketId.RoomWallFurnitureItemUpdated)]
 public class RoomWallFurnitureItemUpdatedWriter : AbstractPacketWriter
 {
-    public required PlayerFurnitureItemPlacementData Item { get; init; }
+    public required PlayerFurnitureItemPlacementDataDto Item { get; init; }
 
     public override void OnSerialize(INetworkPacketWriter writer)
     {
+        var furnitureItem = Item.PlayerFurnitureItem.FurnitureItem;
+        
         writer.WriteString(Item.Id + "");
-        writer.WriteInteger(Item.FurnitureItem.AssetId);
-        writer.WriteString(Item.WallPosition);
+        writer.WriteInteger(furnitureItem.AssetId);
+        writer.WriteString(Item.WallPosition ?? "");
         writer.WriteString(Item.PlayerFurnitureItem.MetaData);
         writer.WriteInteger(-1);
-        writer.WriteInteger(Item.FurnitureItem.InteractionModes > 1 ? 1 : 0);
+        writer.WriteInteger(furnitureItem.InteractionModes > 1 ? 1 : 0);
         writer.WriteLong(Item.PlayerFurnitureItem.Player.Id);
         writer.WriteString(Item.PlayerFurnitureItem.Player.Username);
     }

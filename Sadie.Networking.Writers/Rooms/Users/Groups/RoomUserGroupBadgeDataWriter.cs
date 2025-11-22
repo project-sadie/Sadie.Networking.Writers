@@ -1,6 +1,6 @@
-using Sadie.API.Networking;
-using Sadie.API.Networking.Events.Dtos;
-using Sadie.Shared.Attributes;
+using Sadie.API.Interfaces.Networking;
+using Sadie.API.Interfaces.Networking.Events.Dtos;
+using Sadie.Core.Shared.Attributes;
 
 namespace Sadie.Networking.Writers.Rooms.Users.Groups;
 

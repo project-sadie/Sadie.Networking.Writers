@@ -1,9 +1,9 @@
 using Sadie.API;
-using Sadie.API.Game.Rooms.Users;
-using Sadie.API.Networking;
-using Sadie.Enums.Game.Furniture;
-using Sadie.Shared.Attributes;
-using Sadie.Shared.Helpers;
+using Sadie.API.Interfaces.Game.Rooms.Users;
+using Sadie.API.Interfaces.Networking;
+using Sadie.Core.Enums.Game.Furniture;
+using Sadie.Core.Shared.Attributes;
+using Sadie.Core.Shared.Helpers;
 
 namespace Sadie.Networking.Writers.Rooms.Users.Trading;
 
@@ -27,8 +27,8 @@ public class RoomUserTradeUpdateWriter : AbstractPacketWriter
             
             foreach (var item in usersOfferedItems)
             {
-                writer.WriteInteger(item.Id);
                 writer.WriteString(EnumHelpers.GetEnumDescription(item.FurnitureItem.Type));
+                writer.WriteInteger(item.Id);
                 writer.WriteInteger(item.Id);
                 writer.WriteInteger(item.FurnitureItem.AssetId);
                 writer.WriteInteger(0);

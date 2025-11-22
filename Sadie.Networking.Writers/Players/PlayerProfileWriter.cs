@@ -1,14 +1,14 @@
 using Sadie.API;
-using Sadie.API.Networking;
-using Sadie.Db.Models.Players;
-using Sadie.Shared.Attributes;
+using Sadie.API.DTOs.Player;
+using Sadie.API.Interfaces.Networking;
+using Sadie.Core.Shared.Attributes;
 
 namespace Sadie.Networking.Writers.Players;
 
 [PacketId(ServerPacketId.PlayerProfile)]
 public class PlayerProfileWriter : AbstractPacketWriter
 {
-    public required Player Player { get; init; }
+    public required PlayerDto Player { get; init; }
     public required bool Online { get; init; }
     public required int FriendshipCount { get; init; }
     public required bool FriendshipExists { get; init; }
