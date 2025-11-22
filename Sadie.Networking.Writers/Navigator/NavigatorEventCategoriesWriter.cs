@@ -1,3 +1,4 @@
+using Sadie.API.DTOs.Rooms;
 using Sadie.API.Interfaces.Networking;
 using Sadie.Core.Shared.Attributes;
 

@@ -1,4 +1,5 @@
 using Sadie.API;
+using Sadie.API.DTOs.Navigator;
 using Sadie.API.DTOs.Rooms;
 using Sadie.API.Interfaces.Game.Rooms;
 using Sadie.API.Interfaces.Networking;

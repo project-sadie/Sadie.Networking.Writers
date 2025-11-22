@@ -1,3 +1,4 @@
+using Sadie.API.DTOs.Catalog.FrontPage;
 using Sadie.API.DTOs.Catalog.Items;
 using Sadie.API.Interfaces.Networking;
 using Sadie.Core.Enums.Game.Catalog;
