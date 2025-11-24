@@ -10,7 +10,7 @@ public class RoomUserTradeErrorWriter : AbstractPacketWriter
     public string Username { get; set; } = "";
     public required RoomUserTradeError Code { get; init; }
 
-    public override void OnConfigureRules()
+    public override async Task OnConfigureRulesAsync()
     {
         Override(GetType().GetProperty(nameof(Code))!, 
             writer => writer.WriteInteger((int)Code));

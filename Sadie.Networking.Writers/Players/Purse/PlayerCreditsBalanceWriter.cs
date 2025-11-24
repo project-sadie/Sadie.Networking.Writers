@@ -8,7 +8,7 @@ public class PlayerCreditsBalanceWriter : AbstractPacketWriter
 {
     public required long Credits { get; init; }
 
-    public override void OnConfigureRules()
+    public override async Task OnConfigureRulesAsync()
     {
         Convert<string>(
             GetType().GetProperty(nameof(Credits))!,

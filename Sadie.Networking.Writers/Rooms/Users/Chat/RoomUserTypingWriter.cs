@@ -9,7 +9,7 @@ public class RoomUserTypingWriter : AbstractPacketWriter
     public required long UserId { get; init; }
     public required bool IsTyping { get; init; }
 
-    public override void OnConfigureRules()
+    public override async Task OnConfigureRulesAsync()
     {
         Convert<int>(GetType().GetProperty(nameof(IsTyping))!, o => (bool)o ? 1 : 0);
     }

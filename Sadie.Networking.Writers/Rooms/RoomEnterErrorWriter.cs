@@ -8,7 +8,7 @@ public class RoomEnterErrorWriter : AbstractPacketWriter
 {
     public required int ErrorCode { get; init; }
 
-    public override void OnConfigureRules()
+    public override async Task OnConfigureRulesAsync()
     {
         After(GetType().GetProperty(nameof(ErrorCode))!, writer =>
         {

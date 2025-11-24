@@ -10,7 +10,7 @@ public class PlayerWearingBadgesWriter : AbstractPacketWriter
     public required int PlayerId { get; init; }
     public required ICollection<PlayerBadgeDto> Badges { get; init; }
 
-    public override void OnConfigureRules()
+    public override async Task OnConfigureRulesAsync()
     {
         Override(GetType().GetProperty(nameof(Badges))!, writer =>
         {

@@ -11,7 +11,7 @@ public class PlayerUpdateFriendWriter : AbstractPacketWriter
 {
     public required List<IPlayerFriendshipUpdate> Updates { get; init; }
 
-    public override void OnSerialize(INetworkPacketWriter writer)
+    public override async Task OnSerializeAsync(INetworkPacketWriter writer)
     {
         writer.WriteInteger(0);
         writer.WriteInteger(Updates.Count);

@@ -10,7 +10,7 @@ public class RoomBotStatusWriter : AbstractPacketWriter
 {
     public required ICollection<IRoomBot> Bots { get; init; }
 
-    public override void OnSerialize(INetworkPacketWriter writer)
+    public override async Task OnSerializeAsync(INetworkPacketWriter writer)
     {
         writer.WriteInteger(Bots.Count);
 

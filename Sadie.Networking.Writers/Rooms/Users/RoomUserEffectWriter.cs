@@ -11,7 +11,7 @@ public class RoomUserEffectWriter : AbstractPacketWriter
     public required int EffectId { get; init; }
     public required int DelayMs { get; init; }
 
-    public override void OnSerialize(INetworkPacketWriter writer)
+    public override async Task OnSerializeAsync(INetworkPacketWriter writer)
     {
         writer.WriteLong(UserId);
         writer.WriteInteger(EffectId);

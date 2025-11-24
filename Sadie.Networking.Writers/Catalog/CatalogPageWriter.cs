@@ -21,7 +21,7 @@ public class CatalogPageWriter : AbstractPacketWriter
     public required bool AcceptSeasonCurrencyAsCredits { get; init; }
     public required IEnumerable<CatalogFrontPageItemDto> FrontPageItems { get; init; }
 
-    public override void OnConfigureRules()
+    public override async Task OnConfigureRulesAsync()
     {
         OverrideItems();
         OverrideFrontPageItems();
