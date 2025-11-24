@@ -11,7 +11,7 @@
 
     <ItemGroup>
       <PackageReference Include="Sadie.API" Version="2.9.0" />
-      <PackageReference Include="Sadie.Networking.Serialization" Version="1.5.0" />
+      <PackageReference Include="Sadie.Networking.Serialization" Version="1.6.0" />
     </ItemGroup>
 
 </Project>
