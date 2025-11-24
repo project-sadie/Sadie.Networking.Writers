@@ -1,6 +1,7 @@
 using Sadie.API;
 using Sadie.API.DTOs.Navigator;
 using Sadie.API.DTOs.Rooms;
+using Sadie.API.Interfaces.Game.Players;
 using Sadie.API.Interfaces.Game.Rooms;
 using Sadie.API.Interfaces.Networking;
 using Sadie.Core.Enums.Game.Rooms;
@@ -15,8 +16,9 @@ public class NavigatorSearchResultPagesWriter : AbstractPacketWriter
     public required string? SearchQuery { get; init; }
     public required Dictionary<NavigatorCategoryDto, List<RoomDto>> CategoryRoomMap { get; init; }
     public required IRoomRepository RoomRepository { get; init; }
+    public required IPlayerRepository PlayerRepository { get; init; }
 
-    public override void OnSerialize(INetworkPacketWriter writer)
+    public override async Task OnSerializeAsync(INetworkPacketWriter writer)
     {
         writer.WriteString(TabName);
         writer.WriteString(SearchQuery);
@@ -41,7 +43,7 @@ public class NavigatorSearchResultPagesWriter : AbstractPacketWriter
                 writer.WriteLong(room.Id);
                 writer.WriteString(room.Name);
                 writer.WriteLong(room.OwnerId);
-                writer.WriteString(room.Owner.Username);
+                writer.WriteString((await PlayerRepository.GetPlayerByIdAsync(room.OwnerId))?.Username ?? "Unknown User");
                 writer.WriteInteger((int) room.Settings.AccessType);
                 writer.WriteInteger(userCount);
                 writer.WriteInteger(room.MaxUsersAllowed);

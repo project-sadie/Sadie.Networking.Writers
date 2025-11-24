@@ -1,4 +1,5 @@
-﻿using Sadie.API.Interfaces.Networking;
+﻿using Sadie.API.Interfaces.Game.Players;
+using Sadie.API.Interfaces.Networking;
 using Sadie.Core.Enums.Game.Rooms;
 using Sadie.Core.Shared.Attributes;
 
@@ -12,10 +13,11 @@ public class NavigatorGuestRoomSearchResultWriter : AbstractPacketWriter
     public required List<RoomData> Rooms { get; init; }
     public required bool HasAdditional { get; init; }
     public required OfficialRoomEntryData OfficialRoomEntryData { get; init; }
+    public required IPlayerRepository PlayerRepository { get; init; }
 
-    public override void OnConfigureRules()
+    public override async Task OnConfigureRulesAsync()
     {
-        Override(GetType().GetProperty(nameof(OfficialRoomEntryData))!, writer =>
+        Override(GetType().GetProperty(nameof(OfficialRoomEntryData))!, async writer =>
         {
             if (!HasAdditional)
             {
@@ -45,7 +47,7 @@ public class NavigatorGuestRoomSearchResultWriter : AbstractPacketWriter
                     writer.WriteInteger(guestRoom!.Id);
                     writer.WriteString(guestRoom.Name);
                     writer.WriteLong(guestRoom.OwnerId);
-                    writer.WriteString(guestRoom.Owner!.Username);
+                    writer.WriteString((await PlayerRepository.GetPlayerByIdAsync(guestRoom.OwnerId))?.Username ?? "Unknown User");
                     writer.WriteInteger((int) guestRoom.Settings.AccessType);
                     writer.WriteInteger(OfficialRoomEntryData.UserCount);
                     writer.WriteInteger(guestRoom.MaxUsersAllowed);

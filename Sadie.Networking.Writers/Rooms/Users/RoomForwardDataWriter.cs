@@ -1,5 +1,6 @@
 using Sadie.API;
 using Sadie.API.DTOs.Rooms;
+using Sadie.API.Interfaces.Game.Players;
 using Sadie.API.Interfaces.Networking;
 using Sadie.Core.Enums.Game.Rooms;
 using Sadie.Core.Shared.Attributes;
@@ -14,8 +15,9 @@ public class RoomForwardDataWriter : AbstractPacketWriter
     public required bool EnterRoom { get; init; }
     public required bool IsOwner { get; init; }
     public required int UsersNow { get; init; }
+    public IPlayerRepository PlayerRepository { get; init; }
 
-    public override void OnSerialize(INetworkPacketWriter writer)
+    public override async Task OnSerializeAsync(INetworkPacketWriter writer)
     {
         var settings = Room.Settings;
         var chatSettings = Room.ChatSettings;
@@ -24,7 +26,7 @@ public class RoomForwardDataWriter : AbstractPacketWriter
         writer.WriteLong(Room.Id);
         writer.WriteString(Room.Name);
         writer.WriteLong(Room.OwnerId);
-        writer.WriteString(Room.Owner.Username);
+        writer.WriteString((await PlayerRepository.GetPlayerByIdAsync(Room.OwnerId))?.Username ?? "Unknown User");
         writer.WriteInteger((int) Room.Settings.AccessType);
         writer.WriteInteger(UsersNow);
         writer.WriteInteger(Room.MaxUsersAllowed);

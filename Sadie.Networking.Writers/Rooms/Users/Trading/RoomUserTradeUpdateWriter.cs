@@ -12,7 +12,7 @@ public class RoomUserTradeUpdateWriter : AbstractPacketWriter
 {
     public required IRoomUserTrade Trade { get; init; }
 
-    public override void OnSerialize(INetworkPacketWriter writer)
+    public override async Task OnSerializeAsync(INetworkPacketWriter writer)
     {
         foreach (var user in Trade.Users)
         {

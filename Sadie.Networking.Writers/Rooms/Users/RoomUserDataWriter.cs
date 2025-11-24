@@ -10,7 +10,7 @@ public class RoomUserDataWriter : AbstractPacketWriter
 {
     public required ICollection<IRoomUser> Users { get; set; }
 
-    public override void OnConfigureRules()
+    public override async Task OnConfigureRulesAsync()
     {
         Override(GetType().GetProperty(nameof(Users))!, writer =>
         {

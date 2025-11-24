@@ -19,7 +19,7 @@ public class RoomObjectsRollingWriter : AbstractPacketWriter
     public required string Height { init; get; }
     public required string NextHeight { init; get; }
 
-    public override void OnSerialize(INetworkPacketWriter writer)
+    public override async Task OnSerializeAsync(INetworkPacketWriter writer)
     {
         writer.WriteInteger(X);
         writer.WriteInteger(Y);

@@ -11,7 +11,7 @@ public class PlayerInventoryBotItemsWriter : AbstractPacketWriter
 {
     public required ICollection<PlayerBotDto> Bots { get; init; }
 
-    public override void OnSerialize(INetworkPacketWriter writer)
+    public override async Task OnSerializeAsync(INetworkPacketWriter writer)
     {
         writer.WriteInteger(Bots.Count);
 
