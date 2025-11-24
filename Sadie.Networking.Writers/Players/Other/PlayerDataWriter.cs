@@ -13,18 +13,18 @@ public class PlayerDataWriter : AbstractPacketWriter
     
     public override void OnSerialize(INetworkPacketWriter writer)
     {
-        writer.WriteLong(Player.Id);
-        writer.WriteString(Player.Username);
-        writer.WriteString(Player.AvatarData!.FigureCode);
-        writer.WriteString(Player.AvatarData.Gender == PlayerAvatarGender.Male ? "M" : "F");
-        writer.WriteString(Player.AvatarData.Motto ?? string.Empty);
-        writer.WriteString(Player.Username);
+        writer.WriteLong(Player.Player.Id);
+        writer.WriteString(Player.Player.Username);
+        writer.WriteString(Player.Player.AvatarData!.FigureCode);
+        writer.WriteString(Player.Player.AvatarData.Gender == PlayerAvatarGender.Male ? "M" : "F");
+        writer.WriteString(Player.Player.AvatarData.Motto ?? string.Empty);
+        writer.WriteString(Player.Player.Username);
         writer.WriteBool(false);
-        writer.WriteInteger(Player.Respects.Count);
-        writer.WriteInteger(Player.Data.RespectPoints);
-        writer.WriteInteger(Player.Data.RespectPointsPet);
+        writer.WriteInteger(Player.Player.Respects.Count);
+        writer.WriteInteger(Player.Player.Data.RespectPoints);
+        writer.WriteInteger(Player.Player.Data.RespectPointsPet);
         writer.WriteBool(false);
-        writer.WriteString(Player.Data.LastOnline!.Value.ToString("dd-MM-yyyy HH:mm:ss"));
+        writer.WriteString(Player.Player.Data.LastOnline!.Value.ToString("dd-MM-yyyy HH:mm:ss"));
         writer.WriteBool(false);
         writer.WriteBool(false);
     }

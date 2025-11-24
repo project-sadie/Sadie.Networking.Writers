@@ -9,6 +9,7 @@ namespace Sadie.Networking.Writers.Rooms.Furniture;
 public class RoomWallFurnitureItemUpdatedWriter : AbstractPacketWriter
 {
     public required PlayerFurnitureItemPlacementDataDto Item { get; init; }
+    public required string OwnerUsername { get; init; }
 
     public override void OnSerialize(INetworkPacketWriter writer)
     {
@@ -20,7 +21,7 @@ public class RoomWallFurnitureItemUpdatedWriter : AbstractPacketWriter
         writer.WriteString(Item.PlayerFurnitureItem.MetaData);
         writer.WriteInteger(-1);
         writer.WriteInteger(furnitureItem.InteractionModes > 1 ? 1 : 0);
-        writer.WriteLong(Item.PlayerFurnitureItem.Player.Id);
-        writer.WriteString(Item.PlayerFurnitureItem.Player.Username);
+        writer.WriteLong(Item.PlayerFurnitureItem.PlayerId);
+        writer.WriteString(OwnerUsername);
     }
 }
