@@ -15,18 +15,20 @@ public class RoomForwardDataWriter : AbstractPacketWriter
     public required bool EnterRoom { get; init; }
     public required bool IsOwner { get; init; }
     public required int UsersNow { get; init; }
-    public IPlayerRepository PlayerRepository { get; init; }
+    public required IPlayerRepository PlayerRepository { get; init; }
 
     public override async Task OnSerializeAsync(INetworkPacketWriter writer)
     {
         var settings = Room.Settings;
         var chatSettings = Room.ChatSettings;
         
+        var owner = await PlayerRepository.GetPlayerByIdAsync(Room.OwnerId);
+
         writer.WriteBool(EnterRoom);
         writer.WriteLong(Room.Id);
         writer.WriteString(Room.Name);
         writer.WriteLong(Room.OwnerId);
-        writer.WriteString((await PlayerRepository.GetPlayerByIdAsync(Room.OwnerId))?.Username ?? "Unknown User");
+        writer.WriteString(owner?.Username ?? string.Empty);
         writer.WriteInteger((int) Room.Settings.AccessType);
         writer.WriteInteger(UsersNow);
         writer.WriteInteger(Room.MaxUsersAllowed);
